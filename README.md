@@ -9,8 +9,8 @@ venv\Scripts\activate
   
 pip install django
   
-git clone <url-project>
+git clone >url-project<
   
-git cd <name-project>
+git cd >name-project<
   
 python manage.py runserver
