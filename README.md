@@ -7,7 +7,7 @@ e.g. virtualenv venv
 
 venv\Scripts\activate
   
-pip install django
+pip install django, etc
   
 git clone >url-project<
   
