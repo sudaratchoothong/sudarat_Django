@@ -1,0 +1,42 @@
+{% extends 'sudarat_app/mainHTML.html' %}
+{% block content %}
+    {% for msg in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Warning!!!:</strong> {{msg}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card p-4 mt-5">
+                <h1 class="card-title">Registration User</h1>
+
+                <form action="{% url 'registData' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="input-group flex-nowrap my-2">
+                        <input type="text" class="form-control" placeholder="First Name" aria-label="First Name" name="fname" required>
+                    </div>
+                    <div class="input-group flex-nowrap my-2">
+                        <input type="text" class="form-control" placeholder="Last Name" aria-label="Last Name" name="lname" required>
+                    </div>
+                    <div class="input-group flex-nowrap my-2">
+                        <input type="text" class="form-control" placeholder="Email" aria-label="Email" name="email" required>
+                    </div>
+                    <div class="input-group flex-nowrap my-2">
+                        <input type="text" class="form-control" placeholder="User Name" aria-label="User Name" name="username" required>
+                    </div>
+                    <div class="input-group flex-nowrap my-2">
+                        <input type="password" class="form-control" placeholder="Password" aria-label="Password" name="password" required>
+                    </div>
+                    <div class="input-group flex-nowrap my-2">
+                        <input type="password" class="form-control" placeholder="Re-password" aria-label="Re-password" name="repassword" required>
+                    </div>
+                   
+                    <button type="submit" class="btn btn-warning">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

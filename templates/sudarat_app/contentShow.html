@@ -1,0 +1,21 @@
+{% extends 'sudarat_app/mainHTML.html' %}
+{% block content %} 
+    {% for data in result %}
+        <div class="form-group">
+            <label >StudentID</label>
+            <input type="text" class="form-control" value="{{data.member_studentId}}" readonly> 
+        </div>
+        <div class="form-group">
+            <label >Name</label>
+            <input type="text" class="form-control" value="{{data.member_firstname}} {{data.member_lastname}}" readonly> 
+        </div>
+        <div class="form-group">
+            <label >Detail</label>
+            <textarea class="form-control" rows="5" readonly>{{data.member_detail}}</textarea> 
+        </div>
+        <div class="form-group">
+            <img src="{{data.member_image.url}}" class="img-thumbnail"> 
+        </div>
+
+    {% endfor %}
+{% endblock %}

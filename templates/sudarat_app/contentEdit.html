@@ -1,0 +1,45 @@
+{% extends 'sudarat_app/mainHTML.html' %}
+
+{% block content %}
+<div style="padding: 5rem 20rem">
+    <div class="h3 text-center">
+        Edit Student
+    </div>
+    
+    <form action="{% url 'contentUpdate' %}" enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            {% for student in result %}
+            <input type="hidden" name="id" value="{{student.id}}" />
+            <div style="margin:0.5rem 0">
+                <label for="">Student ID/รหัสนักศึกษา</label>
+                <input type="text" class="form-control" value={{student.member_studentId}} required
+                    name="member_studentId" placeholder="Student ID">
+            </div>
+            <div style="margin:0.5rem 0">
+                <label for="">Firstname/ชื่อ</label>
+                <input type="text" class="form-control" value={{student.member_firstname}} required
+                    name="member_firstname" placeholder="Firstname">
+            </div>
+            <div style="margin:0.5rem 0">
+                <label for="">Lastname/นามสกุล</label>
+                <input type="text" class="form-control" value={{student.member_lastname}} required
+                    name="member_lastname" placeholder="Lastname">
+            </div>
+            <div style="margin:0.5rem 0">
+                <label for="">Infomation/ประวัติส่วนตัว</label>
+                <input type="text" class="form-control" value={{student.member_detail}} required name="member_detail"
+                    placeholder="Infomation">
+            </div>
+            <div style="margin:0.5rem 0">
+                <label for="">Image/รูปภาพ</label>
+                <input type="file" accept="image/" class="form-control" name="member_image" required/>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Edit Student</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'sudarat_app/mainHTML.html' %}
+{% block content %}
+  <h1>Student List</h1>
+  <table class="table">
+    <thead>
+        <tr>
+                <th scope="col">#id</th>
+                <th scope="col">studentId</th>
+                <th scope="col">Firstname</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">Detail</th>
+                <th scope="col">Action</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        {% for data in content %}
+            <tr>
+                <td>{{data.id}}</td>
+                <td>{{data.member_studentId}}</td>
+                <td>{{data.member_firstname}}</td>
+                <td>{{data.member_lastname}}</td>
+                <td>{{data.member_detail}}</td>
+                <td>
+                    <form action="{% url 'contentEdit' %}" method="GET">
+                        
+                        <input type="hidden" value="{{data.id}}" name ="id"></input>
+
+                        <button type="submit">Edit</button>
+
+                       
+                    </form>
+                    <form action="{% url 'contentDelete' %}" method="GET">
+                        
+                        <input type="hidden" value="{{data.id}}" name ="id"></input>
+
+                        <button type="submit">Delete</button>
+
+                        
+                    </form>
+
+                   
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+  </table>
+
+{% endblock %}

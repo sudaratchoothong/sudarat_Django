@@ -1,0 +1,22 @@
+h1{
+    color:rgb(223, 90, 73);
+    text-align:center;
+}
+
+body{
+    background: red;
+}
+img{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+h2{
+    text-align:center;
+    color:rgb(51, 61, 153);
+
+}
+.contentBlock{
+    text-align:center;
+}
